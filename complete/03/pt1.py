@@ -33,12 +33,9 @@ for pos in symbols:
 
                 start = valid_x + search + 1
                 search = 1
-                while row[start+search].isnumeric():
+                while start + search < len(row) and row[start+search].isnumeric():
                     used.add((y + ymod, start+search))
-                    if start + search + 1 < len(row):
-                        search += 1
-                    else:
-                        break
+                    search += 1
 
                 num = row[start:start+search]
                 nums.append(int(num))
