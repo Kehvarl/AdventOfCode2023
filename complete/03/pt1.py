@@ -1,7 +1,7 @@
 from collections import defaultdict
 from pprint import pprint
 
-with open("input.txt") as f:
+with open("jschoolcraft.txt") as f:
     content = f.readlines()
     #content = [int(x) for x in f.readlines()]
 
@@ -35,11 +35,15 @@ for pos in symbols:
                 search = 1
                 while row[start+search].isnumeric():
                     used.add((y + ymod, start+search))
-                    search += 1
+                    if start + search + 1 < len(row):
+                        search += 1
+                    else:
+                        break
 
                 num = row[start:start+search]
                 nums.append(int(num))
 
+print(len(nums))
 print(nums)
 print(sum(nums))
 
