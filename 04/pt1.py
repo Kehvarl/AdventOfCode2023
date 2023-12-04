@@ -5,7 +5,28 @@ with open("input.txt") as f:
     content = f.readlines()
     #content = [int(x) for x in f.readlines()]
 
-for v1 in content:
-    for v2 in content:
-        if int(v1) + int(v2) == 2020:
-            print(v1, v2, (int(v1)*int(v2)))
+wins = []
+for row in content:
+    card, rest = row.strip().split(': ')
+    card = card[5:-1]
+    rest = rest.replace("  ", " ")
+    win, game = rest.split(" | ")
+    win = win.split(" ")
+    game = game.split(" ")
+    score = 0
+    winning = []
+    # print(card)
+    # print(win)
+    # print(game)
+    for num in game:
+        if num in win:
+            winning.append(num)
+            if score == 0:
+                score = 1
+            else:
+                score = score * 2
+    # print(winning)
+    # print(card, score)
+    wins.append(score)
+
+print(sum(wins))
