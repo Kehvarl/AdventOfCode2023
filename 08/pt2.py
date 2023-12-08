@@ -31,3 +31,4 @@ lcm = 1
 for c in outputs:
     lcm = lcm * c // gcd(lcm, c)
 print(lcm)
+
