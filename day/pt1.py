@@ -1,11 +1,10 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 from pprint import pprint
 
 with open("input.txt") as f:
-    content = f.readlines()
-    #content = [int(x) for x in f.readlines()]
+    content = [x.strip() for x in f.readlines()]
+    # content = [int(x) for x in f.readlines()]
 
-for v1 in content:
-    for v2 in content:
-        if int(v1) + int(v2) == 2020:
-            print(v1, v2, (int(v1)*int(v2)))
+for y, v1 in enumerate(content):
+    for x, v2 in enumerate(v1):
+        pass
